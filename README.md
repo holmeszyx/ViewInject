@@ -15,7 +15,7 @@ ViewInject
         private TextView txtTitle;
 
         private void initView(){
-            ViewInject.inject(this, this)
+            ViewInject.inject(this, this);
         }
         
         - 直接使用View, 如ViewHolder一类
@@ -25,7 +25,7 @@ ViewInject
             private TextView txtTitle;
 
             public void initView(View root){
-                VieInject.inject(root, this)
+                VieInject.inject(root, this);
             }
         }
 
@@ -37,6 +37,6 @@ ViewInject
             private TextView txtTitle;
 
             public ViewHolder(View root){
-                super(root)
+                super(root);
             }
         }
