@@ -12,14 +12,23 @@ import android.view.View;
  *
  */
 public class ViewInject {
-
+    
     /**
-     * 注入一个对像，绑定其中的View
+     * 注入一个Activity对像，绑定其中处于 targetClss 类的View
      * @param activity
      * @param host
      */
     public static void inject(Activity activity, Object host){
-        Class<?> clss = host.getClass();
+        inject(activity, host.getClass(), host);
+    }
+
+    /**
+     * 注入一个Activity对像，绑定其中的View
+     * @param activity
+     * @param host
+     */
+    public static void inject(Activity activity, Class<?> targetClss, Object host){
+        final Class<?> clss = targetClss;
         Field[] fields = clss.getDeclaredFields();
         if (fields != null){
             for (int i = 0; i < fields.length; i ++){
@@ -50,7 +59,17 @@ public class ViewInject {
      * @param host
      */    
     public static void inject(View root, Object host){
-        Class<?> clss = host.getClass();
+        inject(root, host.getClass(), host);
+    } 
+    
+    /**
+     * 注入一个对像，绑定其中处于 targetClss 类下的View
+     * @param root
+     * @param targetClss
+     * @param host
+     */    
+    public static void inject(View root, Class<?> targetClss, Object host){
+        final Class<?> clss = targetClss;
         Field[] fields = clss.getDeclaredFields();
         if (fields != null){
             for (int i = 0; i < fields.length; i ++){
