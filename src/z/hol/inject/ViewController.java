@@ -10,6 +10,13 @@ import android.view.View;
  */
 public abstract class ViewController {
 
+    /**
+     * 这是一个空构造方法,
+     * 由子类实现自己的View绑定方法
+     */
+    protected ViewController(){
+        
+    }
     
     public ViewController(Activity activity){
         ViewInject.inject(activity, this);
